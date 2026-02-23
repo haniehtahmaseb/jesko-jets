@@ -1,0 +1,148 @@
+@import "tailwindcss";
+
+@theme {
+  --font-gt: 'gt';
+  --font-gt-ex: 'gt-ex';
+  --color-brown: #312726;
+  --color-cream: #fef8ed;
+  --color-midBrown: #817874;
+  --animate-arrow: arrow 3s ease-in-out infinite;
+  --animate-reveal: reveal 3s linear forwards;
+  --animate-revealTxt: revealTxt 3s linear forwards;
+  --animate-op: op 1s linear forwards;
+  --animate-op2: op 3s linear forwards;
+  --animate-buttonMove: buttonMove 1s linear forwards;
+  --animate-scrollLoop: scrollLoop 18s linear infinite;
+  --animate-cardShow: cardShow 3s linear forwards;
+}
+
+@font-face {
+  font-family: 'gt';
+  src: url(./../font/GT-America/GT-America-Extended-Black-Trial.otf)
+}
+
+@font-face {
+  font-family: 'gt-ex';
+  src: url(./../font/GT-America/GT-America-Extended-Regular-Trial.otf)
+}
+
+@keyframes arrow {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+  }
+
+  99.9% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+
+  100% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.2;
+  }
+
+}
+
+@keyframes reveal {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  50% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes op {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes revealTxt {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  70% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes buttonMove {
+  0% {
+    transform: translate(0,0);
+  }
+
+  40% {
+    transform: translate(10px,-10px);
+  }
+  70% {
+    transform: translate(-10px,5px);
+  }
+
+  100% {
+    transform: translate(0,0);
+  }
+}
+
+@keyframes scrollLoop {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-360px); }
+}
+
+@keyframes cardShow{
+  0%{top:150Vh; }
+  10%{top:120Vh; }
+  20%{top:90Vh; }
+  30%{top:60Vh; }
+  40%{top:30Vh; }
+  50%{top:0Vh; }
+  60%{top:-30Vh; }
+  70%{top:-60Vh; }
+  80%{top:-90Vh; }
+  90%{top:-120Vh; }
+  1000%{top:-150Vh; }
+}
+
+@layer base {
+  body {
+    @apply font-gt
+  }
+
+  body::-webkit-scrollbar {
+    @apply hidden;
+
+  }
+
+}
+
+@layer components {
+  .menuHover {
+    @apply relative flex duration-500 group-hover:-translate-y-full after:absolute after:flex after:items-center after:justify-center after:bg-white/20 after:rounded after:translate-y-full after:duration-500 transition-transform
+  }
+  .card {
+    @apply w-1/2 mb-10 *:text-white *:capitalize *:text-start *:font-gt-ex *:first:text-2xl *:font-bold *:first:w-1/2 *:first:leading-7 *:last:w-2/3 *:last:text-xs *:nth-[2]:w-5 *:nth-[2]:h-px *:nth-[2]:bg-white/50 *:nth-[2]:flex *:nth-[2]:my-5;
+  }
+
+  .noSc::-webkit-scrollbar{
+    @apply hidden
+  }
+}
+
